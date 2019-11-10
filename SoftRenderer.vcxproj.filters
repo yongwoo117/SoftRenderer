@@ -48,10 +48,7 @@
     <ClInclude Include="SoftRenderer.h">
       <Filter>App</Filter>
     </ClInclude>
-    <ClInclude Include="Func.h">
-      <Filter>Shape</Filter>
-    </ClInclude>
-    <ClInclude Include="Point.h">
+    <ClInclude Include="LinearFunction.h">
       <Filter>Shape</Filter>
     </ClInclude>
   </ItemGroup>
@@ -68,7 +65,7 @@
     <ClCompile Include="SoftRenderer.cpp">
       <Filter>App</Filter>
     </ClCompile>
-    <ClCompile Include="Func.cpp">
+    <ClCompile Include="LinearFunction.cpp">
       <Filter>Shape</Filter>
     </ClCompile>
   </ItemGroup>

@@ -142,9 +142,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Func.h" />
     <ClInclude Include="GDIHelper.h" />
-    <ClInclude Include="Point.h" />
+    <ClInclude Include="LinearFunction.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SoftRenderer.h" />
@@ -152,8 +151,8 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Func.cpp" />
     <ClCompile Include="GDIHelper.cpp" />
+    <ClCompile Include="LinearFunction.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="SoftRenderer.cpp" />
     <ClCompile Include="stdafx.cpp">
