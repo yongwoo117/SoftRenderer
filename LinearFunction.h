@@ -3,6 +3,8 @@
 struct Point
 {
 	double x, y;
+	Point() { x = y = 0; }
+	Point(double X, double Y) :x(X), y(Y) {}
 };
 
 class LinearFunction
@@ -15,4 +17,7 @@ public:
 	double operator()(double x);
 	double operator()(int x);
 	static double GetLength(const Point& point1, const Point& point2);
+	Point getCrossPoint(const LinearFunction& Func);
+	bool isHigher(const Point& point);
+	bool isHigher(double x, double y);
 };

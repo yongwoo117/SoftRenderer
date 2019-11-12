@@ -22,3 +22,19 @@ double LinearFunction::GetLength(const Point& point1, const Point& point2)
 {
 	return sqrt(pow(point1.x - point2.x, 2) + pow(point1.x - point2.x, 2));
 }
+
+Point LinearFunction::getCrossPoint(const LinearFunction & Func)
+{
+	double x = (Func.m_intercept - m_intercept) / (m_slope - Func.m_slope);
+	return Point(x, (*this)(x));
+}
+
+bool LinearFunction::isHigher(const Point & point)
+{
+	return ((*this)(point.x) > point.y);
+}
+
+bool LinearFunction::isHigher(double x, double y)
+{
+	return ((*this)(x) > y);
+}
