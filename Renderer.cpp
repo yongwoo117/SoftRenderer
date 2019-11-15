@@ -35,7 +35,7 @@ void DrawTriangle(const Point& P1, const Point &P2, const Point &P3)
 {
 	Point min_size, max_size;
 	LinearFunction Lines[] = { LinearFunction(P1,P2),LinearFunction(P2,P3),LinearFunction(P3,P1) };
-	Point MiddlePoint((P1.x + P2.x + P3.x) / 3, (P1.y, P2.y, P3.y) / 3);
+	Point MiddlePoint((P1.x + P2.x + P3.x) / 3, (P1.y + P2.y + P3.y) / 3);
 	const bool Password[] = { Lines[0].isHigher(MiddlePoint),Lines[1].isHigher(MiddlePoint),Lines[2].isHigher(MiddlePoint) };
 
 	min_size.x = round(min(P1.x, P2.x));
@@ -88,7 +88,7 @@ void UpdateFrame(void)
 	Clear();
 
 	// Draw
-	DrawTriangle(Point(300,0),Point(100,400),Point(600,470));
+	DrawTriangle(Point(300,000),Point(000,470),Point(600,470));
 
 	// Buffer Swap 
 	BufferSwap();

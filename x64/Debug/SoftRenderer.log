@@ -1,4 +1,4 @@
 ﻿  Renderer.cpp
-c:\users\now2_210_27\source\repos\project4\softrenderer\renderer.cpp(54): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\now2_210_27\source\repos\project4\softrenderer\renderer.cpp(56): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  SoftRenderer.vcxproj -> C:\Users\Now2_210_27\source\repos\Project4\SoftRenderer\x64\Debug\SoftRenderer.exe
+C:\Users\yongw\Documents\GitHub\SoftRenderer\Renderer.cpp(54,25): warning C4244:  '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yongw\Documents\GitHub\SoftRenderer\Renderer.cpp(56,26): warning C4244:  '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  SoftRenderer.vcxproj -> C:\Users\yongw\Documents\GitHub\SoftRenderer\x64\Debug\SoftRenderer.exe
