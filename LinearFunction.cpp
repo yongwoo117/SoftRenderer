@@ -59,7 +59,11 @@ double LinearFunction::getLength(const Point& point) const
 {
 	if (m_isVertical)
 		return abs(m_intercept - point.x);
-	return (abs(m_slope * point.x - point.y + m_intercept) / sqrt(pow(m_slope, 2) + pow(m_intercept, 2)));
+	
+	LinearFunction temp;
+	temp.m_slope = -1 / m_slope;
+	temp.m_intercept = point.y - temp.m_slope * point.x;
+	return Point::getLength(getCrossPoint(temp), point);
 }
 
 bool LinearFunction::isHigher(const Point & point) const

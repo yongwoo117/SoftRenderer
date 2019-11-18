@@ -12,6 +12,7 @@ struct Point
 class LinearFunction
 {
 private:
+	LinearFunction() { m_slope = m_intercept = 0; m_isVertical = false; }
 	double m_slope, m_intercept;
 	bool m_isVertical;
 public:
