@@ -31,46 +31,19 @@ void PutPixel(int x, int y)
 	*(dest + offset) = g_CurrentColor;
 }
 
-void DrawTriangle(const Point& P1, const Point &P2, const Point &P3)
+//P1은 왼쪽 위의 점이고, P2는 오른쪽 아래의 점이어야 합니다.
+void DrawUV(const Point& P1, const Point& P2)
 {
-	Point min_size, max_size;
-	LinearFunction Lines[] = { LinearFunction(P1,P2),LinearFunction(P2,P3),LinearFunction(P3,P1) };
-	double Distances[] = { Point::getLength(P1,P2),Point::getLength(P2,P3),Point::getLength(P3,P1) };
-	double Area = (Lines[2].getLength(P2) * Distances[2] / 2);
-	Point MiddlePoint((P1.x + P2.x + P3.x) / 3, (P1.y + P2.y + P3.y) / 3);
-	const bool Password[] = { Lines[0].isHigher(MiddlePoint),Lines[1].isHigher(MiddlePoint),Lines[2].isHigher(MiddlePoint) };
-
-	min_size.x = min(P1.x, P2.x);
-	min_size.x = min(min_size.x, P3.x);
-	max_size.x = max(P1.x, P2.x);
-	max_size.x = max(max_size.x, P3.x);
-
-	min_size.y = min(P1.y, P2.y);
-	min_size.y = min(min_size.y, P3.y);
-	max_size.y = max(P1.y, P2.y);
-	max_size.y = max(max_size.y, P3.y);
-
-	int pixel_x;
-	int pixel_y;
-	int index;
-	for (pixel_x = (int)round(min_size.x); pixel_x <= max_size.x; pixel_x++)
+	for (int Y = P1.y; Y < P2.y; Y++)
 	{
-		for (pixel_y = (int)round(min_size.y); pixel_y <= max_size.y; pixel_y++)
+		for (int X = P1.x; X < P2.x; X++)
 		{
-			for (index = 0; index < 3; index++)
-			{
-				if (Password[index] != Lines[index].isHigher(pixel_x, pixel_y))
-					break;
-			}
-			if (index == 3)
-			{
-				Point currentPoint(pixel_x, pixel_y);
-				SetColor(RGB(
-					255 * (Lines[0].getLength(currentPoint) * Distances[0] / 2) / Area,
-					255 * (Lines[1].getLength(currentPoint) * Distances[1] / 2) / Area,
-					255 * (Lines[2].getLength(currentPoint) * Distances[2] / 2) / Area));
-				PutPixel(CoordinateTransformX(pixel_x), CoordinateTransformY(pixel_y));
-			}
+			SetColor(
+				255 * (1 - (X - P2.x) / (P1.x - P2.x)),
+				255 * (Y - P2.y) / (P1.y - P2.y),
+				0
+			);
+			PutPixel(CoordinateTransformX(X), CoordinateTransformY(Y));
 		}
 	}
 }
@@ -82,11 +55,7 @@ void UpdateFrame(void)
 	Clear();
 
 	// Draw
-	DrawTriangle(
-		Point(000,380),
-		Point(320,000),
-		Point(640,480)
-	);
+	DrawUV(Point(0, 0), Point(480, 480));
 
 	// Buffer Swap 
 	BufferSwap();
